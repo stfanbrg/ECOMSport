@@ -24,7 +24,7 @@ public class CoordonneesCB {
 	private String numero;
 	
 	@Column(name = "Date")
-	private Date date;
+	private String date;
 	
 	@Column(name = "Crypto")
 	private String crypto;
@@ -45,11 +45,11 @@ public class CoordonneesCB {
 		this.numero = numero;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
