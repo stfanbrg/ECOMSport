@@ -21,7 +21,7 @@
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
    <persistence-unit name="primary">
-   	<jta-data-source>java:/mysql</jta-data-source>
+   	<jta-data-source>java:/jdbc/ecomsportDS</jta-data-source>
       <!-- If you are running in a production environment, add a managed 
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as <EAR>/META-INF/ECOMSport-ds.xml, you

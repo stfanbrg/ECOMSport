@@ -43,8 +43,8 @@
       <dependency>
          <groupId>com.M2PGI</groupId>
          <artifactId>ECOMSport-ejb</artifactId>
-         <type>ejb</type>
-         <scope>provided</scope>
+         <version>${project.version}</version>
+         <type>jar</type>
       </dependency>
 
       <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->

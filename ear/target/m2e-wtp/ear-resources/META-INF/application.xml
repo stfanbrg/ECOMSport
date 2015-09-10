@@ -7,8 +7,5 @@
       <context-root>/ECOMSport-web</context-root>
     </web>
   </module>
-  <module>
-    <ejb>ECOMSport-ejb.jar</ejb>
-  </module>
   <library-directory>lib</library-directory>
 </application>
