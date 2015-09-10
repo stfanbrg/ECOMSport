@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F1F1F1;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 0.8em;
+  color:#363636;
+}
+
+#container {
+  margin: 0 auto;
+  padding: 0 20px 10px 20px;
+  border-top: 5px solid #000000;
+  border-left: 5px solid #8c8f91;
+  border-right: 5px solid #8c8f91;
+  border-bottom: 15px solid #8c8f91;
+  width: 80%;
+  background: #eacbcb;
+  padding-top: 30px;
+  box-shadow: 3px 3px 15px #d5d5d5;
+}
+
+img {
+	max-width: 40%;
+	height: auto;
+	float:left;
+}
+
+.sansDepassement
+{
+	clear:both;
+	height: 0; 
+	overflow: hidden; /* Précaution pour IE 7 */
+}
+
+#connect, #recherche, #theme, #filtre, #corps {
+	padding:1px 0;
+}
+
+#hautDroit{
+    margin-left:45%;
+}
+
+#bas{
+	margin-top:5px;
+}
+
+#connect {
+    border-style: solid;
+    border-width: 1px;
+    background-color:#FF9900;
+	text-align:center;
+	margin-bottom:3px;
+}
+
+#recherche {
+    border-style: solid;
+    border-width: 1px;
+    background-color:#e3e441;
+    text-align:center;
+}
+
+#theme {
+    border-style: solid;
+    border-width: 1px;
+    background-color:#ac6fa0;
+}
+
+#categorie {
+    border-style: solid;
+    border-width: 1px;
+    background-color:#cf3539;
+}
+
+#filtre{
+	border-style: solid;
+    border-width: 1px;
+    float:left;
+	min-height: 1200px;
+	min-width:100px;
+	background-color:#FF3366;
+}
+
+#corps{
+	border-style: solid;
+    border-width: 1px;
+    min-width:150px;
+    min-height: 1200px;
+	background-color:#9966FF;
+}
