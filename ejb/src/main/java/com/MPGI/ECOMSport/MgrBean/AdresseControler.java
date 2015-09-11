@@ -1,7 +1,8 @@
 package com.MPGI.ECOMSport.MgrBean;
 
 import javax.ejb.EJB;
-import javax.annotation.*;
+
+import javax.faces.bean.ManagedBean;
 
 import com.MPGI.ECOMSport.EJBsession.AdresseService;
 import com.MPGI.ECOMSport.EJBentity.Adresse;
