@@ -7,14 +7,25 @@
 	<ui:define name="corps">
 		<p>page incorporé</p>
 		<h:form>
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputLabel value="libelle" />
-				<h:inputText value="#{adresseRegisterBean.libelle}"></h:inputText>
-				<h:outputLabel></h:outputLabel>
-				<h:commandButton value="Save"
-					action="#{adresseControler.saveAdresse(adresseControler.adresse)}"></h:commandButton>
-			</h:panelGrid>
-			</h:form>
+
+			<f:view>
+				<h:dataTable border="0" rules="all"
+					value="#{adresseControler.getAllAdresses()}" var="adresse">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="active" />
+						</f:facet>
+						<h:outputText value="#{adresse.active}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="libelle" />
+						</f:facet>
+						<h:outputText value="#{adresse.libelle}" />
+					</h:column>
+				</h:dataTable>
+			</f:view>
+		</h:form>
 	</ui:define>
 
 	<ui:define name="connect">

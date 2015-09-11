@@ -1,11 +1,14 @@
 package com.MPGI.ECOMSport.EJBsession;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import com.MPGI.ECOMSport.EJBentity.Adresse;
 @Local
 public interface AdresseInterfaceLocal {
-	public void  add(Adresse newAdresse);
-	public void edit(Adresse newAdresse);
-	public Adresse find(Object id);
+	void  add(Adresse newAdresse);
+	void edit(Adresse newAdresse);
+	Adresse find(Object id);
+	List<Adresse> findAllAdresses();
 }

@@ -5,5 +5,14 @@
         <dependent-module archiveName="ECOMSport-web.war" deploy-path="/" handle="module:/resource/ECOMSport-web/ECOMSport-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ECOMSport-ejb.jar" deploy-path="/" handle="module:/resource/ECOMSport-ejb/ECOMSport-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsr250-api.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaee-web-api.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

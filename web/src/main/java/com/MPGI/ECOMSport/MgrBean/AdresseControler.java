@@ -1,26 +1,30 @@
 package com.MPGI.ECOMSport.MgrBean;
 
-import javax.ejb.EJB;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
-import com.MPGI.ECOMSport.EJBsession.AdresseService;
 import com.MPGI.ECOMSport.EJBentity.Adresse;
+import com.MPGI.ECOMSport.EJBsession.AdresseInterfaceLocal;
 
 
 
-@ManagedBean
+@ManagedBean(name="adresseControler")
 public class AdresseControler {
 	
 	private Adresse adresse = new Adresse();
 	@EJB
-	private AdresseService service;
+	private AdresseInterfaceLocal service;
 
 	
 	public Adresse getAdresse() {
 		return adresse;
 	}
-
+ 
+	public List<Adresse> getAllAdresses() {
+		return service.findAllAdresses();
+	}
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
