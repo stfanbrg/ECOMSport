@@ -17,7 +17,7 @@ public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idArticle;
- 
+
 	@Column(name = "IdCategorie")
 	private int idCategorie;
 	
