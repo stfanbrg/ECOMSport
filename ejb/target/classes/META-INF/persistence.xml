@@ -30,11 +30,7 @@
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
          <property name="hibernate.show_sql" value="false" />
-         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ecomsport"/>
-         <property name="hibernate.connection.username" value="root"/>
-         <property name="hibernate.connection.password" value="#M2GPI-ECOMSport!"/>
       </properties>
    </persistence-unit>
 </persistence>

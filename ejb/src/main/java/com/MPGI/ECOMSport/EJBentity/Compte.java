@@ -1,4 +1,4 @@
-package com.MPGI.ECOMSport.model;
+package com.MPGI.ECOMSport.EJBentity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
