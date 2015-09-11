@@ -1,18 +1,27 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:h="http://java.sun.com/jsf/html"
-   template="/WEB-INF/templates/default.xhtml">
-   <ui:define name="corps">
-      <p>page incorporé</p>
-   </ui:define>
-   
-   <ui:define name="connect">
-     	<h:form>
-           <h:outputText value="pseudo : " />
-           <h:inputText value="#{identifiant.pseudo}" />
-           <h:commandButton value="se conneter" action="connect" />
-           <h:inputText value="#{}" />
-        </h:form>
-   </ui:define>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="WEB-INF/templates/default.xhtml"
+	xmlns:p="http://java.sun.com/jsf/html">
+	<ui:define name="corps">
+		<p>page incorporé</p>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel value="libelle" />
+				<h:inputText value="#{adresseRegisterBean.libelle}"></h:inputText>
+				<h:outputLabel></h:outputLabel>
+				<h:commandButton value="Save"
+					action="#{adresseControler.saveAdresse(adresseControler.adresse)}"></h:commandButton>
+			</h:panelGrid>
+			</h:form>
+	</ui:define>
+
+	<ui:define name="connect">
+		<h:form>
+			<h:outputText value="pseudo : " />
+			<h:inputText value="#{identifiant.pseudo}" />
+			<h:commandButton value="se conneter" action="connect" />
+		</h:form>
+	</ui:define>
 </ui:composition>
