@@ -25,6 +25,7 @@ public class AdresseService implements AdresseInterfaceRemote,AdresseInterfaceLo
 			em.merge(newAdresse);
 		}
 
+		
 		public Adresse find(Object id){
 			return em.find(com.MPGI.ECOMSport.EJBentity.Adresse.class, id);
 			

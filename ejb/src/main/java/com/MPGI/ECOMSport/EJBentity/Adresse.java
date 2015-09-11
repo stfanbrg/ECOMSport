@@ -18,13 +18,13 @@ public class Adresse {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idAdresse;
  
-	@Column(name = "IdClient")
+	@Column(name = "idClient")
 	private int idClient;
  
-	@Column(name = "Active")
+	@Column(name = "active")
 	private boolean active;
  
-	@Column(name = "Libelle")
+	@Column(name = "libelle")
 	private String libelle;
 
 	public int getIdAdresse() {
