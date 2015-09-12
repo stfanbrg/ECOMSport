@@ -1,6 +1,8 @@
 package com.MPGI.ECOMSport.EJBsession;
 
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
@@ -15,4 +17,6 @@ public class ArticleDao extends AbstractDao<Article, Integer> implements Interfa
     public ArticleDao() {
         super(Article.class);
     }
+
+	
 }
