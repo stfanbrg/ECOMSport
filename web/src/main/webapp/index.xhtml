@@ -19,14 +19,16 @@
 	</ui:define>
 
 	<ui:define name="filtre">
-		<h:selectManyCheckbox id="subscriptions"
-			value="#{subscriptionController.subscriptions}"
-			layout="pageDirection">
-			<f:selectItem id="item1" itemLabel="Enfant" itemValue="1" />
-			<f:selectItem id="item2" itemLabel="Adulte" itemValue="2" />
-			<f:selectItem id="item3" itemLabel="Femme" itemValue="3" />
-			<f:selectItem id="item4" itemLabel="Homme" itemValue="4" />
-		</h:selectManyCheckbox>
+		<h:form>
+			<h:selectManyCheckbox id="subscriptions"
+				value="#{subscriptionController.subscriptions}"
+				layout="pageDirection">
+				<f:selectItem id="item1" itemLabel="Enfant" itemValue="1" />
+				<f:selectItem id="item2" itemLabel="Adulte" itemValue="2" />
+				<f:selectItem id="item3" itemLabel="Femme" itemValue="3" />
+				<f:selectItem id="item4" itemLabel="Homme" itemValue="4" />
+			</h:selectManyCheckbox>
+		</h:form>
 	</ui:define>
 
 	<ui:define name="corps">
