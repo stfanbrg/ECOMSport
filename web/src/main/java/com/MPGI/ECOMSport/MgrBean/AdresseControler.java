@@ -30,7 +30,8 @@ public class AdresseControler {
 	}
 
 	public void saveAdresse(Adresse newAdresse) {
-		newAdresse.setActive(true);
+		/*newAdresse.setActive(true);
+		newAdresse.setIdClient(10);		*/
 		service.add(newAdresse);
 	}
 	

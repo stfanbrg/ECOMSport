@@ -26,6 +26,23 @@
 				</h:dataTable>
 			</f:view>
 		</h:form>
+
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="IdAdresse" />
+				<p:inputText value="#{adresseControler.adresse.idAdresse}"></p:inputText>
+
+				<p:outputLabel value="IdClient" />
+				<p:inputText value="#{adresseControler.adresse.idClient}"></p:inputText>
+				<p:outputLabel value="active" />
+				<p:inputText value="#{adresseControler.adresse.active}"></p:inputText>
+				<p:outputLabel value="libelle" />
+				<p:inputText value="#{adresseControler.adresse.libelle}"></p:inputText>
+				<p:outputLabel></p:outputLabel>
+				<p:commandButton value="Save"
+					action="#{adresseControler.saveAdresse(adresseControler.adresse)}"></p:commandButton>
+			</h:panelGrid>
+		</h:form>
 	</ui:define>
 
 	<ui:define name="connect">
