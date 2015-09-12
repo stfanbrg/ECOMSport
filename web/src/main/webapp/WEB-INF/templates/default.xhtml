@@ -1,54 +1,63 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-   <title>EcomSport</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <h:outputStylesheet name="css/style.css" />
+    <title>EcomSport</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet name="css/style.css"/>
 </h:head>
 <h:body>
-	<f:view>
-		<div id="container">
-		
-			<div id="haut">
-				<div id="vide">
-					<img src="resources/glx/img.jpg" />
-				</div>
-				<div id="hautDroit">
-					
-					<div id="connect">
-					   <ui:insert name="connect">
-				              [Template content will be inserted here]
-				   		</ui:insert> 
-					</div>
-					<div id="recherche">
-					   <p>recherche</p>          
-					</div>
-				</div>
-				<div class="sansDepassement">
-					<!-- juste pour ne pas que l'image sorte du conteneur -->
-				</div>
-			</div>
-			<div id="bas">
-				<div id="theme">
-				   <p>thème</p>          
-				</div>
-				<div id="categorie">
-				   <p>categorie</p>          
-				</div>
-				<div id="filtre">
-				   <p>filtre</p>          
-				</div>
-				<div id="corps">
-				   <ui:insert name="corps">
-				              [Template content will be inserted here]
-				   </ui:insert>     
-				</div>
-		     </div>
-		</div>
-	</f:view>
+    <f:view>
+        <div id="container">
+
+            <div id="haut">
+                <div id="vide">
+                    <img src="resources/glx/img.jpg" alt="logo"/>
+                </div>
+                <div id="hautDroit">
+
+                    <div id="connect">
+                        <ui:insert name="connect">
+                            [Template content will be inserted here]
+                        </ui:insert>
+                    </div>
+                    <div id="recherche">
+                        <p>recherche</p>
+                    </div>
+                </div>
+                <div class="sansDepassement">
+                    <!-- juste pour ne pas que l'image sorte du conteneur -->
+                </div>
+            </div>
+            <div id="bas">
+                <div id="theme">
+                     <ui:insert name="theme">
+                            [Template content will be inserted here]
+                        </ui:insert>
+                </div>
+                <div id="categorie">
+                    <p>categorie</p>
+                </div>
+                <div id="filtre">
+                      <ui:insert name="filtre">
+                            [Template content will be inserted here]
+                        </ui:insert>
+                </div>
+                <div id="corps">
+                    <ui:insert name="corps">
+                        [Template content will be inserted here]
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+    </f:view>
+    <!-- show notification like growl app for mac but in browser (coming from primefaces)-->
+    <p:growl id="loginGrowl" life="2000" showDetail="true"
+             autoUpdate="true"/>
 </h:body>
+
 </html>
