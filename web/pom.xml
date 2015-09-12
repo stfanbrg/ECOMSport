@@ -43,7 +43,7 @@
       <dependency>
          <groupId>com.M2PGI</groupId>
          <artifactId>ECOMSport-ejb</artifactId>
-         <version>${project.version}</version>
+         <version>${project.version}</version><!--$NO-MVN-MAN-VER$-->
          <type>ejb</type>
       </dependency>
 

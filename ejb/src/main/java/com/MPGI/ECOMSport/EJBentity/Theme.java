@@ -6,14 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-/*import javax.persistence.TableGenerator;*/
+import javax.persistence.TableGenerator;
  
 @Entity
 @Table(name = "theme")
 public class Theme {
 	
-	/*@TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 1, pkColumnValue = "employee_gen")
-	*/
+	@TableGenerator(name = "themeGenerator", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 1, pkColumnValue = "employee_gen")
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idTheme;
