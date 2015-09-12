@@ -10,7 +10,6 @@ import javax.faces.bean.ViewScoped;
 
 import com.MPGI.ECOMSport.EJBentity.Adresse;
 import com.MPGI.ECOMSport.EJBsession.AdresseDao;
-import com.MPGI.ECOMSport.EJBsession.IAdresseDao;
 //import com.MPGI.ECOMSport.EJBsession.AdresseInterfaceLocal;
 
 

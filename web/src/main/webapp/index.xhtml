@@ -9,21 +9,15 @@
         <h:form>
 
             <f:view>
-                <h:dataTable border="0" rules="all"
+                <p:dataTable rules="all"
                              value="#{adresseControler.getAllAdresses()}" var="adresse">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="active"/>
-                        </f:facet>
+                    <p:column headerText="active">
                         <h:outputText value="#{adresse.active}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="libelle"/>
-                        </f:facet>
+                    </p:column>
+                    <p:column headerText="libelle">
                         <h:outputText value="#{adresse.libelle}"/>
-                    </h:column>
-                </h:dataTable>
+                    </p:column>
+                </p:dataTable>
             </f:view>
         </h:form>
     </ui:define>
