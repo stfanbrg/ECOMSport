@@ -1,89 +1,82 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
-                template="WEB-INF/templates/default.xhtml"
-                xmlns:p="http://primefaces.org/ui">
-    <ui:define name="corps">
-        <p>page incorporé</p>
-        <h:form>
-			<f:view>
-				<h:dataTable border="0" rules="all"
-					value="#{adresseControler.getAllAdresses()}" var="adresse">
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="active" />
-						</f:facet>
-						<h:outputText value="#{adresse.active}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="libelle" />
-						</f:facet>
-						<h:outputText value="#{adresse.libelle}" />
-					</h:column>
-				</h:dataTable>
-			</f:view>
-		</h:form>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="WEB-INF/templates/default.xhtml"
+	xmlns:p="http://primefaces.org/ui">
 
+	<ui:define name="theme">
 		<h:form>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="IdAdresse" />
-				<p:inputText value="#{adresseControler.adresse.idAdresse}"></p:inputText>
-
-				<p:outputLabel value="IdClient" />
-				<p:inputText value="#{adresseControler.adresse.idClient}"></p:inputText>
-				<p:outputLabel value="active" />
-				<p:inputText value="#{adresseControler.adresse.active}"></p:inputText>
-				<p:outputLabel value="libelle" />
-				<p:inputText value="#{adresseControler.adresse.libelle}"></p:inputText>
-				<p:outputLabel></p:outputLabel>
-				<p:commandButton value="Save"
-					action="#{adresseControler.saveAdresse(adresseControler.adresse)}"></p:commandButton>
-			</h:panelGrid>
+			<f:view>
+				<p:dataTable rules="all" value="#{themeController.getAllThemes()}"
+					var="theme">
+					<p:column headerText="Nom">
+						<h:outputText value="#{theme.nom}" />
+					</p:column>
+				</p:dataTable>
+			</f:view>
 		</h:form>
 	</ui:define>
 
-            <f:view>
-                <p:dataTable rules="all"
-                             value="#{adresseControler.getAllAdresses()}" var="adresse">
-                    <p:column headerText="active">
-                        <h:outputText value="#{adresse.active}"/>
-                    </p:column>
-                    <p:column headerText="libelle">
-                        <h:outputText value="#{adresse.libelle}"/>
-                    </p:column>
-                </p:dataTable>
-            </f:view>
-        </h:form>
-    </ui:define>
-    <ui:define name="connect">
-        <h:form id="loginForm">
-            <h:panelGroup rendered="#{empty compteSession.login}">
+	<ui:define name="filtre">
+		<h:selectManyCheckbox id="subscriptions"
+			value="#{subscriptionController.subscriptions}"
+			layout="pageDirection">
+			<f:selectItem id="item1" itemLabel="Enfant" itemValue="1" />
+			<f:selectItem id="item2" itemLabel="Adulte" itemValue="2" />
+			<f:selectItem id="item3" itemLabel="Femme" itemValue="3" />
+			<f:selectItem id="item4" itemLabel="Homme" itemValue="4" />
+		</h:selectManyCheckbox>
+	</ui:define>
+
+	<ui:define name="corps">
+		<p>page incorporé</p>
+		<h:form>
+			<f:view>
+				<p:dataTable rules="all"
+					value="#{articleController.getAllArticles()}" var="article">
+
+					<p:column headerText="Nom">
+						<h:outputText value="#{article.nom}" />
+					</p:column>
+					<p:column headerText="prix">
+						<h:outputText value="#{article.prix}" />
+					</p:column>
+					<p:column headerText="stock">
+						<h:outputText value="#{article.stock}" />
+					</p:column>
+				</p:dataTable>
+			</f:view>
+		</h:form>
+	</ui:define>
+	<ui:define name="connect">
+		<h:form id="loginForm">
+			<h:panelGroup rendered="#{empty compteSession.login}">
 
 
-                <p:inputText id="login"
-                             requiredMessage="Veuillez entrer votre login."
-                             required="true" class="form-control"
-                             value="#{compteForm.login}"/>
+				<p:inputText id="login"
+					requiredMessage="Veuillez entrer votre login." required="true"
+					class="form-control" value="#{compteForm.login}" />
 
-                <!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
-                <p:watermark for="login" value="Login"/>
+				<!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
+				<p:watermark for="login" value="Login" />
 
-                <p:password id="password"
-                            requiredMessage="Veuillez entrer votre mot de passe."
-                            required="true" class="form-control"
-                            value="#{compteForm.mdp}"/>
-                <p:watermark for="password" value="mot de passe"/>
+				<p:password id="password"
+					requiredMessage="Veuillez entrer votre mot de passe."
+					required="true" class="form-control" value="#{compteForm.mdp}" />
+				<p:watermark for="password" value="mot de passe" />
 
-                <p:commandButton value="Connexion" ajax="false"
-                                 action="#{compteController.login(compteForm)}">
-                </p:commandButton>
-            </h:panelGroup>
-            <h:panelGroup rendered="#{not empty compteSession.login}">
-                <h:outputText value="#{compteSession.prenom} #{compteSession.nom}"/>
-                <h:commandLink action="#{compteController.logout}" value="logout"/>
-            </h:panelGroup>
-        </h:form>
-    </ui:define>
+				<p:commandButton value="Connexion" ajax="false"
+					action="#{compteController.login(compteForm)}">
+				</p:commandButton>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{not empty compteSession.login}">
+				<h:outputText value="#{compteSession.prenom} #{compteSession.nom}" />
+				<h:commandLink action="#{compteController.logout}" value="logout" />
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+
+
+
 </ui:composition>

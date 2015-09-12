@@ -24,9 +24,9 @@ public class AdresseController {
     @PostConstruct
     public void init() {
         Adresse adresse = new Adresse();
-        adresse.setActive(true);
+        /*adresse.setActive(true);
         adresse.setLibelle("hello");
-        this.saveAdresse(adresse);
+        this.saveAdresse(adresse);*/
     }
 
     public List<Adresse> getAllAdresses() {
