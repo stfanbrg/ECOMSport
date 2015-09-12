@@ -1,83 +1,96 @@
 package com.MPGI.ECOMSport.EJBentity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 /*import javax.persistence.TableGenerator;*/
- 
+
 @Entity
 @Table(name = "article")
 public class Article {
-	
-	/*@TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 1, pkColumnValue = "employee_gen")
-	*/
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idArticle;
 
-	@Column(name = "IdCategorie")
-	private int idCategorie;
-	
-	@Column(name = "Nom")
-	private String nom;
-	
-	@Column(name = "Marque")
-	private String marque;
-	
-	@Column(name = "Prix")
-	private int prix;
- 
-	@Column(name = "Stock")
-	private int stock;
+    /*@TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 1, pkColumnValue = "employee_gen")
+    */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idArticle;
 
-	public int getIdArticle() {
-		return idArticle;
-	}
+    @ManyToOne
+    @JoinColumn(name = "id_categorie")
+    private Categorie categorie;
 
-	public void setIdArticle(int idArticle) {
-		this.idArticle = idArticle;
-	}
+    @Column(name = "Nom")
+    private String nom;
 
-	public int getIdCategorie() {
-		return idCategorie;
-	}
+    @Column(name = "Marque")
+    private String marque;
 
-	public void setIdCategorie(int idCategorie) {
-		this.idCategorie = idCategorie;
-	}
+    @Column(name = "Prix")
+    private int prix;
 
-	public String getNom() {
-		return nom;
-	}
+    @Column(name = "Stock")
+    private int stock;
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public int getIdArticle() {
+        return idArticle;
+    }
 
-	public String getMarque() {
-		return marque;
-	}
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
+    }
 
-	public void setMarque(String marque) {
-		this.marque = marque;
-	}
+    public Categorie getCategorie() {
+        return categorie;
+    }
 
-	public int getPrix() {
-		return prix;
-	}
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+        categorie.addArticle(this);
+    }
 
-	public void setPrix(int prix) {
-		this.prix = prix;
-	}
+    public String getNom() {
+        return nom;
+    }
 
-	public int getStock() {
-		return stock;
-	}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+    public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    @Override
+    public int hashCode() {
+        return idArticle;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Article article = (Article) o;
+
+        return idArticle == article.idArticle;
+
+    }
 }
