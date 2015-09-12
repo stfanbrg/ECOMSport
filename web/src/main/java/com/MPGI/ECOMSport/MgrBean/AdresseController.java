@@ -6,15 +6,14 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 import com.MPGI.ECOMSport.EJBentity.Adresse;
-import com.MPGI.ECOMSport.EJBsession.AdresseInterfaceLocal;
+//import com.MPGI.ECOMSport.EJBsession.AdresseInterfaceLocal;
 
 
+@ManagedBean(name = "adresseControler")
+public class AdresseController {
 
-@ManagedBean(name="adresseControler")
-public class AdresseControler {
-	
-	private Adresse adresse = new Adresse();
-	@EJB
+    private Adresse adresse = new Adresse();
+    /*@EJB
 	private AdresseInterfaceLocal service;
 
 	
@@ -36,5 +35,5 @@ public class AdresseControler {
 	
 	public Adresse readAdresse(int idclient) {
 		return service.find(idclient);
-	}
+	}*/
 }

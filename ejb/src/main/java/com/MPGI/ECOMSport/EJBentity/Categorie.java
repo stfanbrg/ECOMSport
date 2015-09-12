@@ -1,50 +1,94 @@
 package com.MPGI.ECOMSport.EJBentity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 /*import javax.persistence.TableGenerator;*/
- 
+
 @Entity
 @Table(name = "categorie")
 public class Categorie {
-	
-	/*@TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 1, pkColumnValue = "employee_gen")
-	*/
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCategorie;
-	
-	@Column(name = "IdTheme")
-	private int idTheme;
-	
-	@Column(name = "Nom")
-	private String nom;
 
-	public int getIdCategorie() {
-		return idCategorie;
-	}
+    /*@TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 1, pkColumnValue = "employee_gen")
+    */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idCategorie;
 
-	public void setIdCategorie(int idCategorie) {
-		this.idCategorie = idCategorie;
-	}
+    @ManyToOne
+    @JoinColumn(name = "id_theme")
+    private Theme theme;
 
-	public int getIdTheme() {
-		return idTheme;
-	}
+    @OneToMany(mappedBy = "categorie")
+    private List<Article> articles;
 
-	public void setIdTheme(int idTheme) {
-		this.idTheme = idTheme;
-	}
+    @Column(name = "Nom")
+    private String nom;
 
-	public String getNom() {
-		return nom;
-	}
+    public Categorie() {
+        articles = new ArrayList<Article>();
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void addArticle(Article article) {
+        if (articles.contains(article)) {
+            return;
+        }
+        articles.add(article);
+    }
+
+    public void removeArticle(Article article) {
+        if (!articles.contains(article)) {
+            return;
+        }
+        articles.remove(article);
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
+
+    public int getIdCategorie() {
+        return idCategorie;
+    }
+
+    public void setIdCategorie(int idCategorie) {
+        this.idCategorie = idCategorie;
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+        theme.addCategorie(this);
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    @Override
+    public int hashCode() {
+        return idCategorie;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Categorie categorie = (Categorie) o;
+
+        return idCategorie == categorie.idCategorie;
+
+    }
 }
