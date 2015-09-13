@@ -50,7 +50,12 @@
 						</h:form>
 					</div>
 					<div id="recherche">
-						<p>recherche</p>
+						<h:form>
+							<h:inputText value="#{articleController.recherche}" />
+							<h:commandButton value="Rechercher"
+								action="#{articleController.getArticlesSearch()}" />
+
+						</h:form>
 					</div>
 				</div>
 				<div class="sansDepassement">
@@ -61,10 +66,12 @@
 				<div id="theme">
 					<h:form>
 						<f:view>
-							<p:dataTable rules="all" value="#{themeController.getAllThemes()}"
-								var="theme">
-								<p:column headerText="Nom">
-									<h:outputText value="#{theme.nom}" />
+							<p:dataTable rules="all"
+								value="#{themeController.getAllThemes()}" var="theme">
+								<p:column>
+									<h:selectOneRadio value="#{articleController.theme}">
+										<f:selectItem itemValue="#{theme}" itemLabel="#{theme.nom}" />
+									</h:selectOneRadio>
 								</p:column>
 							</p:dataTable>
 						</f:view>
