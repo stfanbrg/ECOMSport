@@ -1,6 +1,5 @@
 package com.MPGI.ECOMSport.MgrBean;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -21,15 +20,12 @@ public class ArticleController {
 	private ArticleDao articleDao;
 
 	public String recherche;
-	public String theme;
-	public String categorie;
 
 	@PostConstruct
 	public void init() {
 		Article adresse = new Article();
 
 	}
-
 
 	public String getRecherche() {
 		return recherche;
@@ -45,20 +41,11 @@ public class ArticleController {
 
 	public List<Article> getArticlesSearch() {
 		if (recherche!=null){
-			return articleDao.findByName(this.recherche);
+			return articleDao.findByLikeName(this.recherche);
 		}
-		return articleDao.findSelection(theme);
+		
+		return articleDao.findSelection(CompteController.getCurrentCompte().getTheme());
 	}
-
-	public String getTheme() {
-		return theme;
-	}
-
-
-	public void setTheme(String theme) {
-		this.theme = theme;
-	}
-
 
 	public void saveAdresse(Article newArticle) {
 		System.out.println(articleDao);

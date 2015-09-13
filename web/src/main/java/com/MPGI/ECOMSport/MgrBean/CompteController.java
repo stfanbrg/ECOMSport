@@ -4,6 +4,7 @@ package com.MPGI.ECOMSport.MgrBean;
 import com.MPGI.ECOMSport.EJBentity.Adresse;
 import com.MPGI.ECOMSport.EJBentity.Compte;
 import com.MPGI.ECOMSport.EJBsession.CompteDao;
+import com.MPGI.ECOMSport.beans.CompteSession;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -23,9 +24,9 @@ public class CompteController {
     /*
     On doit récuperer le bean CompteSession via jsf car c'est lui qui s'est chargé de l'instancier voici comment faire
      */
-    public static Compte getCurrentCompte() {
+    public static CompteSession getCurrentCompte() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        return (Compte) facesContext.getExternalContext().getSessionMap().get("compteSession");
+        return (CompteSession) facesContext.getExternalContext().getSessionMap().get("compteSession");
     }
 
     // to create a test user please don't forget to remove it

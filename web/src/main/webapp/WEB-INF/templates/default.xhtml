@@ -65,16 +65,10 @@
 			<div id="bas">
 				<div id="theme">
 					<h:form>
-						<f:view>
-							<p:dataTable rules="all"
-								value="#{themeController.getAllThemes()}" var="theme">
-								<p:column>
-									<h:selectOneRadio value="#{articleController.theme}">
-										<f:selectItem itemValue="#{theme}" itemLabel="#{theme.nom}" />
-									</h:selectOneRadio>
-								</p:column>
-							</p:dataTable>
-						</f:view>
+							<h:selectOneRadio value="#{compteSession.theme}">
+								<f:selectItems value="#{themeController.getAllThemes()}" var="theme" 
+        							itemLabel="#{theme.nom}" itemValue="#{theme}" />
+							</h:selectOneRadio>
 					</h:form>
 				</div>
 				<div id="categorie">
