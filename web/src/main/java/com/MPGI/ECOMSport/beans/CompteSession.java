@@ -10,21 +10,24 @@ import com.MPGI.ECOMSport.EJBentity.Theme;
 @ManagedBean(name = "compteSession")
 @SessionScoped
 public class CompteSession extends Compte {
-	private Theme theme;
-	private Categorie categorie;
-	
-	public Theme getTheme() {
-		return theme;
-	}
-	public void setTheme(Theme theme) {
-		this.theme = theme;
-	}
-	public Categorie getCategorie() {
-		return categorie;
-	}
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
-	
-	
+    private Theme theme;
+    private Categorie categorie;
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
+
 }
