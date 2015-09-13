@@ -12,6 +12,7 @@ import com.MPGI.ECOMSport.EJBentity.Theme;
 public class CompteSession extends Compte {
 	private Theme theme;
 	private Categorie categorie;
+	
 	public Theme getTheme() {
 		return theme;
 	}

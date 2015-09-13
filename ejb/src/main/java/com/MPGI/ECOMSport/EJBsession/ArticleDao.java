@@ -32,12 +32,8 @@ public class ArticleDao extends AbstractDao<Article, Integer> implements Interfa
 	}
 
 	public List<Article> findSelection(Theme theme){
-		List<Article> list = new ArrayList<Article>();
-		if(theme!=null){
-			TypedQuery<Article> query = em.createQuery("SELECT a from article NATURAL JOIN categorie c NATURAL JOIN theme t WHERE t.nom=:themeName",Article.class);
-			return query.setParameter("themeName", theme.getNom()).getResultList();
-		}
-		else
-			return findAll();
+		return  em.createQuery("SELECT object(a) FROM Article a INNER JOIN a.categorie c INNER JOIN c.theme t WHERE t.nom =:themeName",Article.class)
+				.setParameter("themeName",theme)
+				.getResultList();
 	}
 }

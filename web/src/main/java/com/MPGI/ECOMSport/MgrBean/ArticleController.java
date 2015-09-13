@@ -40,11 +40,11 @@ public class ArticleController {
 	}
 
 	public List<Article> getArticlesSearch() {
-		if (recherche!=null){
+		if (recherche!=null)
 			return articleDao.findByLikeName(this.recherche);
-		}
-		
-		return articleDao.findSelection(CompteController.getCurrentCompte().getTheme());
+		else if(CompteController.getCurrentCompte().getTheme()!=null)
+			 articleDao.findSelection(CompteController.getCurrentCompte().getTheme());
+		return articleDao.findAll();
 	}
 
 	public void saveAdresse(Article newArticle) {
