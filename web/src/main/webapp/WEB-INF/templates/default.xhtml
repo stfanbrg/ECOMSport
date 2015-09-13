@@ -1,95 +1,96 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>EcomSport</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<h:outputStylesheet name="css/style.css" />
+    <title>EcomSport</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet name="css/style.css"/>
 </h:head>
 <h:body>
-	<f:view>
-		<div id="container">
+    <f:view>
+        <div id="container">
 
-			<div id="haut">
-				<div id="vide">
-					<img src="resources/glx/img.jpg" alt="logo" />
-				</div>
-				<div id="hautDroit">
+            <div id="haut">
+                <div id="vide">
+                    <img src="resources/glx/img.jpg" alt="logo"/>
+                </div>
+                <div id="hautDroit">
 
-					<div id="connect">
-						<h:form id="loginForm">
-							<h:panelGroup rendered="#{empty compteSession.login}">
-								<p:inputText id="login"
-									requiredMessage="Veuillez entrer votre login." required="true"
-									class="form-control" value="#{compteForm.login}" />
+                    <div id="connect">
+                        <h:form id="loginForm">
+                            <h:panelGroup rendered="#{empty compteSession.login}">
+                                <p:inputText id="login"
+                                             requiredMessage="Veuillez entrer votre login." required="true"
+                                             class="form-control" value="#{compteForm.login}"/>
 
-								<!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
-								<p:watermark for="login" value="Login" />
+                                <!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
+                                <p:watermark for="login" value="Login"/>
 
-								<p:password id="password"
-									requiredMessage="Veuillez entrer votre mot de passe."
-									required="true" class="form-control" value="#{compteForm.mdp}" />
-								<p:watermark for="password" value="mot de passe" />
+                                <p:password id="password"
+                                            requiredMessage="Veuillez entrer votre mot de passe."
+                                            required="true" class="form-control" value="#{compteForm.mdp}"/>
+                                <p:watermark for="password" value="mot de passe"/>
 
-								<p:commandButton value="Connexion" ajax="false"
-									action="#{compteController.login(compteForm)}">
-								</p:commandButton>
-							</h:panelGroup>
-							<h:panelGroup rendered="#{not empty compteSession.login}">
-								<h:outputText
-									value="#{compteSession.prenom} #{compteSession.nom}" />
-								<h:commandLink action="#{compteController.logout}"
-									value="logout" />
-							</h:panelGroup>
-						</h:form>
-					</div>
-					<div id="recherche">
-						<h:form>
-							<h:inputText value="#{articleController.recherche}" />
-							<h:commandButton value="Rechercher"
-								action="#{articleController.getArticlesSearch()}" />
+                                <p:commandButton value="Connexion" ajax="false"
+                                                 action="#{compteController.login(compteForm)}">
+                                </p:commandButton>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{not empty compteSession.login}">
+                                <h:outputText
+                                        value="#{compteSession.prenom} #{compteSession.nom}"/>
+                                <h:commandLink action="#{compteController.logout}"
+                                               value="logout"/>
+                            </h:panelGroup>
+                        </h:form>
+                    </div>
+                    <div id="recherche">
+                        <h:form>
+                            <h:inputText value="#{articleController.recherche}"/>
+                            <h:commandButton value="Rechercher"
+                                             action="#{articleController.getArticlesSearch()}"/>
 
-						</h:form>
-					</div>
-				</div>
-				<div class="sansDepassement">
-					<!-- juste pour ne pas que l'image sorte du conteneur -->
-				</div>
-			</div>
-			<div id="bas">
-				<div id="theme">
-					<h:form>
-						<p:selectOneRadio value="#{compteSession.theme}">
-							<f:selectItems value="#{themeController.getAllThemes()}"
-								var="theme" itemLabel="#{theme.nom}" itemValue="#{theme}" />
-								<p:ajax update="@all"/>
-						</p:selectOneRadio>
-						
-					</h:form>
-				</div>
-				<div id="categorie">
-					<p>categorie</p>
-				</div>
-				<div id="filtre">
-					<ui:insert name="filtre">
-                            [Template content will be inserted here]
-                        </ui:insert>
-				</div>
-				<div id="corps">
-					<ui:insert name="corps">
+                        </h:form>
+                    </div>
+                </div>
+                <div class="sansDepassement">
+                    <!-- juste pour ne pas que l'image sorte du conteneur -->
+                </div>
+            </div>
+            <div id="bas">
+                <div id="theme">
+                    <h:form>
+                        <p:selectOneRadio value="#{compteSession.theme}"
+                                          converter="#{themeConverter}">
+                            <f:selectItems value="#{themeController.getAllThemes()}"
+                                           var="theme" itemLabel="#{theme.nom}" itemValue="#{theme}"/>
+                            <p:ajax update="@all"/>
+                        </p:selectOneRadio>
+
+                    </h:form>
+                </div>
+                <div id="categorie">
+                    <p>categorie</p>
+                </div>
+                <div id="filtre">
+                    <ui:insert name="filtre">
                         [Template content will be inserted here]
                     </ui:insert>
-				</div>
-			</div>
-		</div>
-	</f:view>
-	<!-- show notification like growl app for mac but in browser (coming from primefaces)-->
-	<p:growl id="loginGrowl" life="2000" showDetail="true" 
-		autoUpdate="true" />
+                </div>
+                <div id="corps">
+                    <ui:insert name="corps">
+                        [Template content will be inserted here]
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+    </f:view>
+    <!-- show notification like growl app for mac but in browser (coming from primefaces)-->
+    <p:growl id="loginGrowl" life="2000" showDetail="true"
+             autoUpdate="true"/>
 </h:body>
 
 </html>
