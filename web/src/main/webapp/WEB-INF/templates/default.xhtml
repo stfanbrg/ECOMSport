@@ -68,11 +68,16 @@
 								var="theme" itemLabel="#{theme.nom}" itemValue="#{theme}" />
 								<p:ajax update="@all"/>
 						</p:selectOneRadio>
-						
 					</h:form>
 				</div>
 				<div id="categorie">
-					<p>categorie</p>
+					<h:form>
+						<p:selectOneRadio value="#{compteSession.categorie}">
+							<f:selectItems value="#{categorieController.getCategoriesByTheme()}"
+								var="categorie" itemLabel="#{categorie.nom}" itemValue="#{categorie}" />
+								<p:ajax update="@all"/>
+						</p:selectOneRadio>
+					</h:form>
 				</div>
 				<div id="filtre">
 					<ui:insert name="filtre">

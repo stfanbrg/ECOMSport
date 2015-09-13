@@ -22,7 +22,14 @@ public class ThemeController {
 
     @PostConstruct
     public void init() {
-    	Theme theme = new Theme();
+    	/*Theme theme = new Theme();
+    	theme.setIdTheme(1);
+    	theme.setNom("ski");
+    	saveTheme(theme);
+    	Theme theme1 = new Theme();
+    	theme1.setIdTheme(2);
+    	theme1.setNom("snowboard");
+    	saveTheme(theme1);*/
     }
 
     public List<Theme> getAllThemes() {

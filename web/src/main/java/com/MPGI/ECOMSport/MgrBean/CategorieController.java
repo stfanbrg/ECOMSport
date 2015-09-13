@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import com.MPGI.ECOMSport.EJBentity.Categorie;
-import com.MPGI.ECOMSport.EJBentity.Theme;
 import com.MPGI.ECOMSport.EJBsession.CategorieDao;
 
 
@@ -23,6 +22,7 @@ public class CategorieController {
     @PostConstruct
     public void init() {
     	Categorie categorie = new Categorie();
+    	/*categorie.setNom("baton")   	*/
     }
 
     public List<Categorie> getAllCategories() {
@@ -37,5 +37,9 @@ public class CategorieController {
 
     public Categorie readTCategorie(int idCategorie) {
         return categorieDao.findById(idCategorie);
+    }
+    
+    public List<Categorie> getCategoriesByTheme(){
+    	return categorieDao.findCategorieByTheme(CompteController.getCurrentCompte().getTheme());
     }
 }
