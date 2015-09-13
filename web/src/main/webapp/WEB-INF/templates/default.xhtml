@@ -52,7 +52,6 @@
 							<h:inputText value="#{articleController.recherche}" />
 							<h:commandButton value="Rechercher"
 								action="#{articleController.getArticlesSearch()}" />
-
 						</h:form>
 					</div>
 				</div>
@@ -63,26 +62,22 @@
 			<div id="bas">
 				<div id="theme">
 					<h:form>
-						<p:selectOneRadio value="#{compteSession.theme}">
+						<p:selectOneRadio value="#{compteSession.theme}"
+							converter="#{themeConverter}">
 							<f:selectItems value="#{themeController.getAllThemes()}"
 								var="theme" itemLabel="#{theme.nom}" itemValue="#{theme}" />
-								<p:ajax update="@all"/>
+							<p:ajax update="@all" />
 						</p:selectOneRadio>
+
 					</h:form>
 				</div>
 				<div id="categorie">
-					<h:form>
-						<p:selectOneRadio value="#{compteSession.categorie}">
-							<f:selectItems value="#{categorieController.getCategoriesByTheme()}"
-								var="categorie" itemLabel="#{categorie.nom}" itemValue="#{categorie}" />
-								<p:ajax update="@all"/>
-						</p:selectOneRadio>
-					</h:form>
+					<p>categorie</p>
 				</div>
 				<div id="filtre">
 					<ui:insert name="filtre">
-                            [Template content will be inserted here]
-                        </ui:insert>
+                        [Template content will be inserted here]
+                    </ui:insert>
 				</div>
 				<div id="corps">
 					<ui:insert name="corps">
@@ -93,7 +88,7 @@
 		</div>
 	</f:view>
 	<!-- show notification like growl app for mac but in browser (coming from primefaces)-->
-	<p:growl id="loginGrowl" life="2000" showDetail="true" 
+	<p:growl id="loginGrowl" life="2000" showDetail="true"
 		autoUpdate="true" />
 </h:body>
 
