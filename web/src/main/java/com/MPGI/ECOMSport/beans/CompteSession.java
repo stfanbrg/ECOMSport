@@ -32,5 +32,7 @@ public class CompteSession extends Compte {
         this.categorie = categorie;
     }
 
-
+    public void removeCategorie() {
+        this.categorie = null;
+    }
 }
