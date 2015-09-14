@@ -18,18 +18,30 @@
 			</h:selectManyCheckbox>
 		</h:form>
 	</ui:define>
+	<ui:define name="categorie">
+		<h:form>
+			<p:commandButton value="Tout" id="ajax"
+				action="#{compteSession.removeCategorie()}" update="@all"
+				styleClass="ui-priority-primary" />
+			<ui:repeat var="categorie"
+				value="#{categorieController.categoriesByTheme}">
+				<p:commandButton value="#{categorie.nom}" id="ajax"
+					action="#{compteSession.setCategorie(categorie)}" update="@all"
+					styleClass="ui-priority-primary" />
+			</ui:repeat>
+		</h:form>
+	</ui:define>
 	<ui:define name="corps">
-
-		<p>Affichage</p>
 		<h:form>
 			<f:view>
-				<p>puff puff</p>
-				<h:panelGrid id="resourcePanel" columns="3" rules="all" style="border: 2px solid green;">
+				<h:panelGrid id="resourcePanel" columns="3" rules="all"
+					style="border: 2px solid green;">
 					<c:forEach var="article" items="#{articleController.allArticles}">
-						<h:panelGrid columns="1" rules="none" style=" border: 2px solid red;">
+						<h:panelGrid columns="1" rules="none"
+							style=" border: 2px solid red;">
 							<h:graphicImage value="resources/glx/#{article.image}"
 								style="width:300px; heigth:300px" />
-							<h:link outcome="ficheArticle2" >
+							<h:link outcome="ficheArticle2">
 								<f:param name="idarticle" value="#{article.idArticle}" />
 								<h:outputText value="#{article.nom}" />
 							</h:link>
@@ -37,33 +49,7 @@
 
 					</c:forEach>
 				</h:panelGrid>
-				<!-- Debut du DIV 
-				<p:dataTable rules="all"
-					value="#{articleController.getArticlesSearch()}" var="article">
-
-					<p:column headerText="Nom">
-						<h:outputText value="#{article.nom}" />
-					</p:column>
-					<p:column headerText="prix">
-						<h:outputText value="#{article.prix}" />
-					</p:column>
-					<p:column headerText="stock">
-						<h:outputText value="#{article.stock}" />
-					</p:column>
-				</p:dataTable> -->
 			</f:view>
-		</h:form>
-	</ui:define>
-	<ui:define name="categorie">
-		<h:form>
-			<p:commandButton value="Tout" id="ajax"
-					action="#{compteSession.removeCategorie()}" update="@all"
-					styleClass="ui-priority-primary" />
-			<ui:repeat var="categorie" value="#{categorieController.categoriesByTheme}">
-				<p:commandButton value="#{categorie.nom}" id="ajax"
-					action="#{compteSession.setCategorie(categorie)}" update="@all"
-					styleClass="ui-priority-primary" />
-			</ui:repeat>
 		</h:form>
 	</ui:define>
 </ui:composition>
