@@ -42,8 +42,10 @@ public class ArticleController {
 	public List<Article> getArticlesSearch() {
 		if (recherche!=null)
 			return articleDao.findByLikeName(this.recherche);
+		else if (CompteController.getCurrentCompte().getCategorie()!=null)
+			return articleDao.findSelectionCategorie(CompteController.getCurrentCompte().getTheme(),CompteController.getCurrentCompte().getCategorie());
 		else if(CompteController.getCurrentCompte().getTheme()!=null)
-			 articleDao.findSelection(CompteController.getCurrentCompte().getTheme());
+			 return articleDao.findSelection(CompteController.getCurrentCompte().getTheme());
 		return articleDao.findAll();
 	}
 

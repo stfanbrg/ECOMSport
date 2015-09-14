@@ -20,7 +20,8 @@ public class CompteSession extends Compte {
     }
 
     public void setTheme(Theme theme) {
-        this.theme = theme;
+    	this.categorie=null;
+    	this.theme = theme;
     }
 
     public Categorie getCategorie() {

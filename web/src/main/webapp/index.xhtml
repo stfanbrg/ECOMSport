@@ -62,16 +62,23 @@
 		</h:form>
 	</ui:define>
 
-	
+
 
 	<ui:define name="categorie">
-		<h:form>
+		<!-- <h:form>
 			<p:selectOneRadio value="#{compteSession.categorie}">
 				<f:selectItems value="#{categorieController.categoriesByTheme}"
 					var="categorie" itemLabel="#{categorie.nom}"
 					itemValue="#{categorie}" />
 				<p:ajax update="@all" />
 			</p:selectOneRadio>
+		</h:form>-->
+		<h:form>
+			<ui:repeat var="categorie" value="#{categorieController.categoriesByTheme}">
+				<p:commandButton value="#{categorie.nom}" id="ajax"
+					action="#{compteSession.setCategorie(categorie)}" update="@all"
+					styleClass="ui-priority-primary" />
+			</ui:repeat>
 		</h:form>
 	</ui:define>
 
