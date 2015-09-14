@@ -28,7 +28,7 @@
            can find it in the source at ear/src/main/application/META-INF/ECOMSport-ds.xml -->
         <properties>
             <!-- Properties for Hibernate -->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="drop update"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>

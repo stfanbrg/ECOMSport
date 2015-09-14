@@ -21,12 +21,39 @@
                 <div id="hautDroit">
 
                     <div id="connect">
-                        <ui:insert name="connect">
-                            [Template content will be inserted here]
-                        </ui:insert>
+                        <h:form id="loginForm">
+                            <h:panelGroup rendered="#{empty compteSession.login}">
+                                <p:inputText id="login"
+                                             requiredMessage="Veuillez entrer votre login." required="true"
+                                             class="form-control" value="#{compteForm.login}"/>
+
+                                <!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
+                                <p:watermark for="login" value="Login"/>
+
+                                <p:password id="password"
+                                            requiredMessage="Veuillez entrer votre mot de passe."
+                                            required="true" class="form-control" value="#{compteForm.mdp}"/>
+                                <p:watermark for="password" value="mot de passe"/>
+
+                                <p:commandButton value="Connexion" ajax="false"
+                                                 action="#{compteController.login(compteForm)}">
+                                </p:commandButton>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{not empty compteSession.login}">
+                                <h:outputText
+                                        value="#{compteSession.prenom} #{compteSession.nom}"/>
+                                <h:commandLink action="#{compteController.logout}"
+                                               value="logout"/>
+                            </h:panelGroup>
+                        </h:form>
                     </div>
                     <div id="recherche">
-                        <p>recherche</p>
+                        <h:form>
+                            <h:inputText value="#{articleController.recherche}"/>
+                            <h:commandButton value="Rechercher"
+                                             action="#{articleController.getArticlesSearch()}"/>
+
+                        </h:form>
                     </div>
                 </div>
                 <div class="sansDepassement">
@@ -35,17 +62,23 @@
             </div>
             <div id="bas">
                 <div id="theme">
-                     <ui:insert name="theme">
-                            [Template content will be inserted here]
-                        </ui:insert>
+                    <h:form>
+                        <p:selectOneRadio value="#{compteSession.theme}"
+                                          converter="#{themeConverter}">
+                            <f:selectItems value="#{themeController.getAllThemes()}"
+                                           var="theme" itemLabel="#{theme.nom}" itemValue="#{theme}"/>
+                            <p:ajax update="@all"/>
+                        </p:selectOneRadio>
+
+                    </h:form>
                 </div>
                 <div id="categorie">
                     <p>categorie</p>
                 </div>
                 <div id="filtre">
-                      <ui:insert name="filtre">
-                            [Template content will be inserted here]
-                        </ui:insert>
+                    <ui:insert name="filtre">
+                        [affichage par défault]
+                    </ui:insert>
                 </div>
                 <div id="corps">
                     <ui:insert name="corps">

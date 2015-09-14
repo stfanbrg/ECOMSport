@@ -28,8 +28,19 @@ public class Article {
 
     @Column(name = "Stock")
     private int stock;
+    
+    @Column(name = "Image")
+    private String image;
 
-    public int getIdArticle() {
+    public String getImage() {
+		return image;
+	}
+
+	public void setImage(String Image) {
+		this.image = image;
+	}
+
+	public int getIdArticle() {
         return idArticle;
     }
 
