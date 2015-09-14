@@ -10,6 +10,7 @@ import javax.faces.bean.RequestScoped;
 import com.MPGI.ECOMSport.EJBentity.Article;
 import com.MPGI.ECOMSport.EJBentity.Theme;
 import com.MPGI.ECOMSport.EJBsession.ThemeDao;
+import com.MPGI.ECOMSport.beans.CompteSession;
 
 
 @ManagedBean(name = "themeController")
@@ -30,6 +31,7 @@ public class ThemeController {
     	theme1.setIdTheme(2);
     	theme1.setNom("snowboard");
     	saveTheme(theme1);*/
+    	
     }
 
     public List<Theme> getAllThemes() {

@@ -18,9 +18,9 @@
 			</h:selectManyCheckbox>
 		</h:form>
 	</ui:define>
-
 	<ui:define name="corps">
-		<p>page incorporee</p>
+
+		<p>Affichage</p>
 		<h:form>
 			<f:view>
 				<p>puff puff</p>
@@ -54,12 +54,16 @@
 			</f:view>
 		</h:form>
 	</ui:define>
-	<ui:define name="connect">
-
+	<ui:define name="categorie">
+		<h:form>
+			<p:commandButton value="Tout" id="ajax"
+					action="#{compteSession.removeCategorie()}" update="@all"
+					styleClass="ui-priority-primary" />
+			<ui:repeat var="categorie" value="#{categorieController.categoriesByTheme}">
+				<p:commandButton value="#{categorie.nom}" id="ajax"
+					action="#{compteSession.setCategorie(categorie)}" update="@all"
+					styleClass="ui-priority-primary" />
+			</ui:repeat>
+		</h:form>
 	</ui:define>
-	<ui:define name="recherche">
-
-	</ui:define>
-
-
 </ui:composition>

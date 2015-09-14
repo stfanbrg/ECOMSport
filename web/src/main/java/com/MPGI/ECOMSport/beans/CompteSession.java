@@ -7,6 +7,8 @@ import com.MPGI.ECOMSport.EJBentity.Categorie;
 import com.MPGI.ECOMSport.EJBentity.Compte;
 import com.MPGI.ECOMSport.EJBentity.Theme;
 
+
+
 @ManagedBean(name = "compteSession")
 @SessionScoped
 public class CompteSession extends Compte {
@@ -18,7 +20,8 @@ public class CompteSession extends Compte {
     }
 
     public void setTheme(Theme theme) {
-        this.theme = theme;
+    	this.categorie=null;
+    	this.theme = theme;
     }
 
     public Categorie getCategorie() {
@@ -29,5 +32,7 @@ public class CompteSession extends Compte {
         this.categorie = categorie;
     }
 
-
+    public void removeCategorie() {
+        this.categorie = null;
+    }
 }
