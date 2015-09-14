@@ -9,8 +9,7 @@
 	<title>EcomSport</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet name="css/style.css" />
-</h:head>
-<h:body>
+</h:head><h:body>
 	<f:view>
 		<div id="container">
 
@@ -62,23 +61,26 @@
 			<div id="bas">
 				<div id="theme">
 					<h:form>
-						<p:selectOneRadio value="#{compteSession.theme}"
-							converter="#{themeConverter}">
-							<f:selectItems value="#{themeController.getAllThemes()}"
-								var="theme" itemLabel="#{theme.nom}" itemValue="#{theme}" />
-							<p:ajax update="@all" />
-						</p:selectOneRadio>
-
+						<ui:repeat var="theme" value="#{themeController.getAllThemes()}">
+							<p:commandButton value="#{theme.nom}" id="ajax"
+								action="#{compteSession.setTheme(theme)}" update="@all"
+								styleClass="ui-priority-primary" />
+						</ui:repeat>
 					</h:form>
 				</div>
+
 				<div id="categorie">
-					<p>categorie</p>
+					<ui:insert name="categorie">
+                        [Template content will be inserted here]
+                    </ui:insert>
 				</div>
+
 				<div id="filtre">
 					<ui:insert name="filtre">
                         [Template content will be inserted here]
                     </ui:insert>
 				</div>
+
 				<div id="corps">
 					<ui:insert name="corps">
                         [Template content will be inserted here]

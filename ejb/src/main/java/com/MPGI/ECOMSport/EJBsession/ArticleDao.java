@@ -1,17 +1,15 @@
 package com.MPGI.ECOMSport.EJBsession;
 
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.persistence.TypedQuery;
 
 import com.MPGI.ECOMSport.EJBentity.Article;
 import com.MPGI.ECOMSport.EJBentity.Theme;
 
+	
 
 @Stateless
 @LocalBean

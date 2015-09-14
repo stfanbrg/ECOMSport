@@ -22,11 +22,9 @@ public class CategorieController {
     @PostConstruct
     public void init() {
     	Categorie categorie = new Categorie();
-    	/*categorie.setNom("baton")   	*/
     }
 
     public List<Categorie> getAllCategories() {
-
         return categorieDao.findAll();
     }
 
@@ -40,6 +38,8 @@ public class CategorieController {
     }
     
     public List<Categorie> getCategoriesByTheme(){
-    	return categorieDao.findCategorieByTheme(CompteController.getCurrentCompte().getTheme());
+    	if(CompteController.getCurrentCompte().getTheme()!=null)
+    		return categorieDao.findCategorieByTheme(CompteController.getCurrentCompte().getTheme());
+    	return null;
     }
 }

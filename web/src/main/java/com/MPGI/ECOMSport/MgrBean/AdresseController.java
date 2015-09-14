@@ -6,12 +6,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 
 import com.MPGI.ECOMSport.EJBentity.Adresse;
 import com.MPGI.ECOMSport.EJBsession.AdresseDao;
-//import com.MPGI.ECOMSport.EJBsession.AdresseInterfaceLocal;
-
 
 @ManagedBean(name = "adresseControler")
 @RequestScoped

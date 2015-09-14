@@ -19,9 +19,10 @@
 	</ui:define>
 
 	<ui:define name="corps">
-		<p>page incorporé</p>
+		<p>Affichage</p>
 		<h:form>
 			<f:view>
+
 				<p:dataTable rules="all"
 					value="#{articleController.getArticlesSearch()}" var="article">
 
@@ -35,14 +36,43 @@
 						<h:outputText value="#{article.stock}" />
 					</p:column>
 				</p:dataTable>
+				<!--  
+				  <p:panelGrid columns="2">
+					<f:facet name="header">
+						<p:graphicImage name="ressources/glx/img.jpg" />
+					</f:facet>
+
+					<h:outputText value="Name:" />
+					<h:outputText value="Kobe Bryant" />
+
+					<h:outputText value="Team:" />
+					<h:outputText value="Los Angeles Lakers" />
+
+					<h:outputText value="Position:" />
+					<h:outputText value="Shooting Guard" />
+
+					<h:outputText value="Number:" />
+					<h:outputText value="24" />
+				</p:panelGrid>-->
+
+
+
+
 			</f:view>
 		</h:form>
 	</ui:define>
-	<ui:define name="connect">
 
-	</ui:define>
-	<ui:define name="recherche">
+	
 
+	<ui:define name="categorie">
+		<h:form>
+			<p:selectOneRadio value="#{compteSession.categorie}">
+				<f:selectItems value="#{categorieController.categoriesByTheme}"
+					var="categorie" itemLabel="#{categorie.nom}"
+					itemValue="#{categorie}" />
+				<p:ajax update="@all" />
+			</p:selectOneRadio>
+		</h:form>
 	</ui:define>
 
 

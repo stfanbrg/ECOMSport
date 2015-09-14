@@ -21,8 +21,9 @@ public class CategorieDao extends AbstractDao<Categorie, Integer> implements Int
     }
     
     public List<Categorie> findCategorieByTheme(Theme theme){
-    	return  em.createQuery("SELECT object(c) FROM Categorie c INNER JOIN c.theme t WHERE t.nom =:themeName",Categorie.class)
-				.setParameter("themeName",theme)
-				.getResultList();
-	}
+    	return em.createQuery("SELECT object(c) FROM Categorie as c INNER JOIN c.theme as t"
+    			+ " WHERE t.nom =:themeName",Categorie.class)
+    			.setParameter("themeName",theme.getNom())
+    			.getResultList();
+     }
 }
