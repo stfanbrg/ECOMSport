@@ -1,11 +1,12 @@
 package com.MPGI.ECOMSport.EJBsession;
 
-import com.MPGI.ECOMSport.EJBentity.Compte;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import com.MPGI.ECOMSport.EJBentity.Compte;
 
 @Stateless
 @LocalBean
@@ -21,5 +22,9 @@ public class CompteDao extends AbstractDao<Compte, Integer> implements Interface
                 .uniqueResult();
     }
 
-
+    public void saveUser(Compte compte){
+    	//em.persist(compte); 
+    	System.out.println(compte.getNom());   
+   }
+    
 }

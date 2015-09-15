@@ -37,7 +37,7 @@ public class Article {
 	}
 
 	public void setImage(String Image) {
-		this.image = image;
+		this.image = Image;
 	}
 
 	public int getIdArticle() {

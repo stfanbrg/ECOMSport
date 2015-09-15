@@ -18,25 +18,15 @@
 			</h:selectManyCheckbox>
 		</h:form>
 	</ui:define>
-	<ui:define name="categorie">
-		<h:form>
-			<p:commandButton value="Tout" id="ajax"
-				action="#{compteSession.removeCategorie()}" update="@all"
-				styleClass="ui-priority-primary" />
-			<ui:repeat var="categorie"
-				value="#{categorieController.categoriesByTheme}">
-				<p:commandButton value="#{categorie.nom}" id="ajax"
-					action="#{compteSession.setCategorie(categorie)}" update="@all"
-					styleClass="ui-priority-primary" />
-			</ui:repeat>
-		</h:form>
-	</ui:define>
+
 	<ui:define name="corps">
+		<p>Affichage</p>
 		<h:form>
 			<f:view>
 				<h:panelGrid id="resourcePanel" columns="3" rules="all"
 					style="border: 2px solid green;">
-					<c:forEach var="article" items="#{articleController.allArticles}">
+					<c:forEach var="article"
+						items="#{articleController.getArticlesSearch()}">
 						<h:panelGrid columns="1" rules="none"
 							style=" border: 2px solid red;">
 							<h:graphicImage value="resources/glx/#{article.image}"
@@ -46,10 +36,34 @@
 								<h:outputText value="#{article.nom}" />
 							</h:link>
 						</h:panelGrid>
-
 					</c:forEach>
 				</h:panelGrid>
 			</f:view>
+		</h:form>
+	</ui:define>
+	<ui:define name="connect">
+		<h:form id="loginForm">
+			<h:panelGroup rendered="#{empty compteSession.login}">
+				<p:inputText id="login"
+					requiredMessage="Veuillez entrer votre login." required="true"
+					class="form-control" value="#{compteForm.login}" />
+
+				<!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
+				<p:watermark for="login" value="Login" />
+
+				<p:password id="password"
+					requiredMessage="Veuillez entrer votre mot de passe."
+					required="true" class="form-control" value="#{compteForm.mdp}" />
+				<p:watermark for="password" value="mot de passe" />
+
+				<p:commandButton value="Connexion" ajax="false"
+					action="#{compteController.login(compteForm)}">
+				</p:commandButton>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{not empty compteSession.login}">
+				<h:outputText value="#{compteSession.prenom} #{compteSession.nom}" />
+				<h:commandLink action="#{compteController.logout}" value="logout" />
+			</h:panelGroup>
 		</h:form>
 	</ui:define>
 </ui:composition>

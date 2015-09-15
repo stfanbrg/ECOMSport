@@ -1,17 +1,16 @@
 package com.MPGI.ECOMSport.MgrBean;
 
 
-import com.MPGI.ECOMSport.EJBentity.Adresse;
-import com.MPGI.ECOMSport.EJBentity.Compte;
-import com.MPGI.ECOMSport.EJBsession.CompteDao;
-import com.MPGI.ECOMSport.beans.CompteSession;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+
+import com.MPGI.ECOMSport.EJBentity.Compte;
+import com.MPGI.ECOMSport.EJBsession.CompteDao;
+import com.MPGI.ECOMSport.beans.CompteSession;
 
 @ManagedBean(name = "compteController")
 @RequestScoped
@@ -58,7 +57,6 @@ public class CompteController {
         compteSession.setMdp(null);
         compteSession.setNom(null);
         compteSession.setPrenom(null);
-
     }
 
     public void login(Compte compteForm) {
@@ -92,5 +90,8 @@ public class CompteController {
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Connexion réussie", "")
         );
     }
-
+	
+    public void saveUser(Compte compte){
+		compteDao.save(compte);
+	}
 }
