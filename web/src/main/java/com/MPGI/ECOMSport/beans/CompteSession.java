@@ -19,20 +19,23 @@ public class CompteSession extends Compte {
         return theme;
     }
 
-    public void setTheme(Theme theme) {
+    public String setTheme(Theme theme) {
     	this.categorie=null;
     	this.theme = theme;
+    	return "index";
     }
 
     public Categorie getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(Categorie categorie) {
+    public String setCategorie(Categorie categorie) {
         this.categorie = categorie;
+        return "index";
     }
 
-    public void removeCategorie() {
+    public String removeCategorie() {
         this.categorie = null;
+        return "index";
     }
 }

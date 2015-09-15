@@ -23,8 +23,7 @@ public class CompteDao extends AbstractDao<Compte, Integer> implements Interface
     }
 
     public void saveUser(Compte compte){
-    	//em.persist(compte); 
-    	System.out.println(compte.getNom());   
+    	em.persist(compte); 
    }
     
 }

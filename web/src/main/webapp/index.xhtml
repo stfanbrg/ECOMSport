@@ -42,28 +42,7 @@
 		</h:form>
 	</ui:define>
 	<ui:define name="connect">
-		<h:form id="loginForm">
-			<h:panelGroup rendered="#{empty compteSession.login}">
-				<p:inputText id="login"
-					requiredMessage="Veuillez entrer votre login." required="true"
-					class="form-control" value="#{compteForm.login}" />
-
-				<!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
-				<p:watermark for="login" value="Login" />
-
-				<p:password id="password"
-					requiredMessage="Veuillez entrer votre mot de passe."
-					required="true" class="form-control" value="#{compteForm.mdp}" />
-				<p:watermark for="password" value="mot de passe" />
-
-				<p:commandButton value="Connexion" ajax="false"
-					action="#{compteController.login(compteForm)}">
-				</p:commandButton>
-			</h:panelGroup>
-			<h:panelGroup rendered="#{not empty compteSession.login}">
-				<h:outputText value="#{compteSession.prenom} #{compteSession.nom}" />
-				<h:commandLink action="#{compteController.logout}" value="logout" />
-			</h:panelGroup>
-		</h:form>
+		
 	</ui:define>
+
 </ui:composition>

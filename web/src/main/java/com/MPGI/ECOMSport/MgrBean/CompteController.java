@@ -91,7 +91,8 @@ public class CompteController {
         );
     }
 	
-    public void saveUser(Compte compte){
-		compteDao.save(compte);
+    public String saveUser(Compte compte){
+    	compteDao.saveUser(compte);
+		return "index";
 	}
 }

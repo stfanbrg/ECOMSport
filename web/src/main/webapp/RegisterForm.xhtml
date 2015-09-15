@@ -21,7 +21,9 @@
 			<p:inputText value="#{compteRegister.email}"></p:inputText>
 			<p:outputLabel></p:outputLabel>
 			<p:commandButton value="Save"
-				action="#{compteController.saveUser(compteRegister)}"></p:commandButton>	
+				action="#{compteController.saveUser(compteRegister)}"></p:commandButton>
+			<p:commandButton value="Annuler" 
+				action="index" update="@all" ></p:commandButton>
 		</h:panelGrid>
 	</ui:define>
 </ui:composition>
