@@ -6,17 +6,24 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import com.MPGI.ECOMSport.EJBentity.Article;
 import com.MPGI.ECOMSport.EJBentity.Commande;
 import com.MPGI.ECOMSport.EJBsession.ArticleDao;
+import com.MPGI.ECOMSport.beans.CompteSession;
+import com.MPGI.ECOMSport.beans.PanierSession;
 
 
 @ManagedBean(name = "articleController")
 @RequestScoped
 public class ArticleController {
 
-
+	public static PanierSession getCurrentSession() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        return (PanierSession) facesContext.getExternalContext().getSessionMap().get("PanierSession");
+    }
+	
 	@EJB
 	private ArticleDao articleDao;
 	public String recherche;
@@ -60,7 +67,7 @@ public class ArticleController {
 		return articleDao.findById(idArticle);
 	}
 
-	public List<Article> getPanierArticles(Commande commande) {
-		return commande.getArticles();
+	public List<Article> getPanierArticles() {
+		return getCurrentSession().getArticles();
 	}
 }
