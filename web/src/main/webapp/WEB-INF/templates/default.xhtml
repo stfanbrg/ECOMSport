@@ -24,7 +24,7 @@
 						<h:form id="loginForm">
 							<h:panelGroup rendered="#{empty compteSession.login}">
 								<p:inputText id="login"
-									requiredMessage="Veuillez entrer votre login." required="false"
+									requiredMessage="Veuillez entrer votre login." required="true"
 									class="form-control" value="#{compteForm.login}" />
 
 								<!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
@@ -32,7 +32,7 @@
 
 								<p:password id="password"
 									requiredMessage="Veuillez entrer votre mot de passe."
-									required="false" class="form-control" value="#{compteForm.mdp}" />
+									required="true" class="form-control" value="#{compteForm.mdp}" />
 								<p:watermark for="password" value="mot de passe" />
 
 								<p:commandButton value="Connexion" ajax="false"
