@@ -94,8 +94,17 @@ public class CompteController {
     }
 	
     public String saveUser(CompteRegister compte){
-    	
-    	compteDao.saveUser(compte);
-		return "index";
+
+    	Compte compte2 = new Compte();
+    	compte2.setAdresse(compte.getAdresse());
+    	compte2.setCoordonneesCBs(compte.getCoordonneesCBs());
+    	compte2.setEmail(compte.getEmail());
+    	compte2.setIdClient(compte.getIdClient());
+    	compte2.setLogin(compte.getLogin());
+    	compte2.setNom(compte.getNom());
+    	compte2.setPrenom(compte.getPrenom());
+    	compte2.setMdp(compte.getMdp());
+    	compteDao.save(compte2);
+		return "CompteCreate";
 	}
 }

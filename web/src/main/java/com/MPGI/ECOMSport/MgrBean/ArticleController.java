@@ -6,19 +6,34 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import com.MPGI.ECOMSport.EJBentity.Article;
+import com.MPGI.ECOMSport.EJBentity.Commande;
 import com.MPGI.ECOMSport.EJBsession.ArticleDao;
+import com.MPGI.ECOMSport.beans.CompteSession;
+import com.MPGI.ECOMSport.beans.PanierSession;
+import com.MPGI.ECOMSport.beans.SelectedArticle;
 
 
 @ManagedBean(name = "articleController")
 @RequestScoped
 public class ArticleController {
 
+	
+	public static PanierSession getCurrentPanierSession() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        return (PanierSession) facesContext.getExternalContext().getSessionMap().get("panierSession");
+        
 
+    }
+    public static SelectedArticle getCurrentSelectedArticle() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        return (SelectedArticle) facesContext.getExternalContext().getSessionMap().get("selectedArticle");
+    }
+    
 	@EJB
 	private ArticleDao articleDao;
-
 	public String recherche;
 
 	@PostConstruct
@@ -59,4 +74,21 @@ public class ArticleController {
 		return articleDao.findById(idArticle);
 	}
 
+	public List<Article> getPanierArticles() {
+		return getCurrentPanierSession().getArticles();
+	}
+	
+	public String selectArticle(int id)
+	{
+		Article article = readArticle(id);
+		getCurrentSelectedArticle().setCategorie(article.getCategorie());
+		getCurrentSelectedArticle().setIdArticle(article.getIdArticle());
+		getCurrentSelectedArticle().setImage(article.getImage());
+		getCurrentSelectedArticle().setMarque(article.getMarque());
+		getCurrentSelectedArticle().setNom(article.getNom());
+		getCurrentSelectedArticle().setPrix(article.getPrix());
+		getCurrentSelectedArticle().setStock(article.getStock());
+		
+		return "ficheArticle2";
+	}
 }

@@ -14,13 +14,13 @@
 				<h:panelGrid id="resourcePanel" columns="3" rules="all" cellspacing="0" cellpadding="0">
 					<c:forEach var="article"
 						items="#{articleController.getArticlesSearch()}">
-						<h:link outcome="ficheArticle2">
+						<h:commandLink action="#{articleController.selectArticle(article.idArticle)}" >	
 						<f:param name="idarticle" value="#{article.idArticle}" />
 						<h:panelGrid columns="1" rules="none" cellpadding="0">
 							<h:graphicImage value="resources/glx/#{article.image}"/>
-								<h:outputText value="#{article.nom}" /> 
+								<h:outputText value="#{article.nom}" /> 																		
 						</h:panelGrid>
-						</h:link>
+						</h:commandLink >
 					</c:forEach>
 				</h:panelGrid>
 			</f:view>
