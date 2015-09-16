@@ -31,10 +31,10 @@
 							style=" border: 2px solid red;">
 							<h:graphicImage value="resources/glx/#{article.image}"
 								style="width:300px; heigth:300px" />
-							<h:link outcome="ficheArticle2">
-								<f:param name="idarticle" value="#{article.idArticle}" />
+							<h:commandLink action="#{articleController.selectArticle(article.idArticle)}" >
+								<!-- <f:param name="idarticle" value=#{article.idArticle} />-->
 								<h:outputText value="#{article.nom}" />
-							</h:link>
+							</h:commandLink >
 						</h:panelGrid>
 					</c:forEach>
 				</h:panelGrid>

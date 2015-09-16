@@ -24,7 +24,7 @@
 						<h:form id="loginForm">
 							<h:panelGroup rendered="#{empty compteSession.login}">
 								<p:inputText id="login"
-									requiredMessage="Veuillez entrer votre login." required="true"
+									requiredMessage="Veuillez entrer votre login." required="false"
 									class="form-control" value="#{compteForm.login}" />
 
 								<!-- it's like placeholder (jsf doesn't support html5) it's on primefaces -->
@@ -50,7 +50,7 @@
 					<div id="recherche">
 						<h:form>
 							<h:commandLink action="RegisterForm" value="s'enregistrer" />
-							<h:commandLink action="panierVide" value="Panier" />
+							<h:commandLink action="#{panierSession.isEmpty()}" value="Panier" />
 							<h:inputText value="#{articleController.recherche}" />
 							<h:commandButton value="Rechercher"
 								action="index" />
@@ -84,7 +84,6 @@
 								styleClass="ui-priority-primary" />
 						</ui:repeat>
 					</h:form>
-
 				</div>
 
 				<div id="filtre">
