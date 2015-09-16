@@ -92,7 +92,7 @@ public class CompteController {
     }
 	
     public String saveUser(Compte compte){
-    	compteDao.saveUser(compte);
+    	compteDao.save(compte);
 		return "index";
 	}
 }

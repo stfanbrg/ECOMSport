@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import com.MPGI.ECOMSport.EJBentity.Article;
+import com.MPGI.ECOMSport.EJBentity.Commande;
 import com.MPGI.ECOMSport.EJBsession.ArticleDao;
 
 
@@ -18,7 +19,6 @@ public class ArticleController {
 
 	@EJB
 	private ArticleDao articleDao;
-
 	public String recherche;
 
 	@PostConstruct
@@ -60,4 +60,7 @@ public class ArticleController {
 		return articleDao.findById(idArticle);
 	}
 
+	public List<Article> getPanierArticles(Commande commande) {
+		return commande.getArticles();
+	}
 }

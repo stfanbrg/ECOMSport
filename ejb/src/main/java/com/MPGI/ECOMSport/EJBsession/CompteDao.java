@@ -21,9 +21,4 @@ public class CompteDao extends AbstractDao<Compte, Integer> implements Interface
         return (Compte) criteria.add(Restrictions.eq("login", login))
                 .uniqueResult();
     }
-
-    public void saveUser(Compte compte){
-    	em.persist(compte); 
-   }
-    
 }

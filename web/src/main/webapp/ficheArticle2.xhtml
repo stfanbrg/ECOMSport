@@ -17,6 +17,8 @@
 			<h:outputText value="#{articleController.readArticle(param.idarticle).nom}" />
 			<h:outputText value="description" />
 			<h:outputText value="#{param.idarticle}" />
+			<p:commandButton value="Valider"
+				action="#{panierSession.addArticles(articleController.readArticle(param.idarticle))}" update="@all"></p:commandButton>
 		</p:panelGrid>
 	</ui:define>
 </ui:composition>
