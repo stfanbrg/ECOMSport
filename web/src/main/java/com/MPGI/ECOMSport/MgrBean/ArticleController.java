@@ -9,9 +9,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import com.MPGI.ECOMSport.EJBentity.Article;
-import com.MPGI.ECOMSport.EJBentity.Commande;
 import com.MPGI.ECOMSport.EJBsession.ArticleDao;
-import com.MPGI.ECOMSport.beans.CompteSession;
 import com.MPGI.ECOMSport.beans.PanierSession;
 import com.MPGI.ECOMSport.beans.SelectedArticle;
 
@@ -80,15 +78,23 @@ public class ArticleController {
 	
 	public String selectArticle(int id)
 	{
-		Article article = readArticle(id);
-		getCurrentSelectedArticle().setCategorie(article.getCategorie());
-		getCurrentSelectedArticle().setIdArticle(article.getIdArticle());
-		getCurrentSelectedArticle().setImage(article.getImage());
-		getCurrentSelectedArticle().setMarque(article.getMarque());
-		getCurrentSelectedArticle().setNom(article.getNom());
-		getCurrentSelectedArticle().setPrix(article.getPrix());
-		getCurrentSelectedArticle().setStock(article.getStock());
 		
+		Article article = readArticle(id);
+		if (article !=null)
+		{
+			if (getCurrentSelectedArticle() != null)
+			{
+					getCurrentSelectedArticle().setCategorie(article.getCategorie());
+					getCurrentSelectedArticle().setIdArticle(article.getIdArticle());
+					getCurrentSelectedArticle().setImage(article.getImage());
+					getCurrentSelectedArticle().setMarque(article.getMarque());
+					getCurrentSelectedArticle().setNom(article.getNom());
+					getCurrentSelectedArticle().setPrix(article.getPrix());
+					getCurrentSelectedArticle().setStock(article.getStock());
+					
+			}
+			
+		}	
 		return "ficheArticle2";
 	}
 }
