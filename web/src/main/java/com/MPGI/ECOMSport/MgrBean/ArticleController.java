@@ -19,9 +19,9 @@ import com.MPGI.ECOMSport.beans.PanierSession;
 @RequestScoped
 public class ArticleController {
 
-	public static PanierSession getCurrentSession() {
+	public static PanierSession getCurrentPanierSession() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        return (PanierSession) facesContext.getExternalContext().getSessionMap().get("PanierSession");
+        return (PanierSession) facesContext.getExternalContext().getSessionMap().get("panierSession");
     }
 	
 	@EJB
@@ -68,6 +68,6 @@ public class ArticleController {
 	}
 
 	public List<Article> getPanierArticles() {
-		return getCurrentSession().getArticles();
+		return getCurrentPanierSession().getArticles();
 	}
 }

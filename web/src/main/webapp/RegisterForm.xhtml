@@ -10,7 +10,7 @@
 	<ui:define name="corps">
 			<h:panelGrid columns="2" cellpadding="5">
 			<p:outputLabel value="Login" />
-			<p:inputText value="#{compteRegister.login}"></p:inputText>
+			<p:inputText value="#{compteRegister.login}" required="true" </p:inputText>
 			<p:outputLabel value="Mot de passe" />
 			<p:inputText value="#{compteRegister.mdp}"></p:inputText>
 			<p:outputLabel value="Nom" />

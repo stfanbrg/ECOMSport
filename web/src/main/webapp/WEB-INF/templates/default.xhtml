@@ -32,7 +32,7 @@
 
 								<p:password id="password"
 									requiredMessage="Veuillez entrer votre mot de passe."
-									required="true" class="form-control" value="#{compteForm.mdp}" />
+									required="false" class="form-control" value="#{compteForm.mdp}" />
 								<p:watermark for="password" value="mot de passe" />
 
 								<p:commandButton value="Connexion" ajax="false"
@@ -50,7 +50,7 @@
 					<div id="recherche">
 						<h:form>
 							<h:commandLink action="RegisterForm" value="s'enregistrer" />
-							<h:commandLink action="Panier" value="Panier" />
+							<h:commandLink action="panierVide" value="Panier" />
 							<h:inputText value="#{articleController.recherche}" />
 							<h:commandButton value="Rechercher"
 								action="index" />
