@@ -1,6 +1,5 @@
 package com.MPGI.ECOMSport.EJBsession;
 
-import javax.ejb.Local;
 import java.io.Serializable;
 import java.util.List;
 

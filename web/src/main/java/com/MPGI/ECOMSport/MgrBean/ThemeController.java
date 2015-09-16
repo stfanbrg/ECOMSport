@@ -7,10 +7,8 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import com.MPGI.ECOMSport.EJBentity.Article;
 import com.MPGI.ECOMSport.EJBentity.Theme;
 import com.MPGI.ECOMSport.EJBsession.ThemeDao;
-import com.MPGI.ECOMSport.beans.CompteSession;
 
 
 @ManagedBean(name = "themeController")

@@ -1,7 +1,6 @@
 package com.MPGI.ECOMSport.EJBentity;
 
 import javax.persistence.*;
-import java.util.List;
 /*import javax.persistence.TableGenerator;*/
 
 @Entity

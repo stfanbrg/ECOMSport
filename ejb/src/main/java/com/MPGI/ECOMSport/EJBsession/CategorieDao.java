@@ -6,7 +6,6 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-import com.MPGI.ECOMSport.EJBentity.Article;
 import com.MPGI.ECOMSport.EJBentity.Categorie;
 import com.MPGI.ECOMSport.EJBentity.Theme;
 

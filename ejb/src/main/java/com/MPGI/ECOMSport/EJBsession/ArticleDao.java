@@ -24,9 +24,10 @@ public class ArticleDao extends AbstractDao<Article, Integer> implements Interfa
     public List<Article> findByLikeName(String name) {
         if (name.equals(""))
             return findAll();
-        return em.createQuery("SELECT object(a) FROM Article a WHERE a.nom LIKE :articleName", Article.class)
-                .setParameter("articleName",
-                        "%" + name + "%")
+        return em.createQuery("SELECT object(a) FROM Article a 	INNER JOIN a.categorie c INNER JOIN c.theme t WHERE a.nom LIKE :articleName or c.nom LIKE :articleName2 or t.nom LIKE :articleName3", Article.class)
+                .setParameter("articleName","%" + name + "%")
+                .setParameter("articleName2",name + "%")
+                .setParameter("articleName3",name + "%")
                 .getResultList();
     }
 

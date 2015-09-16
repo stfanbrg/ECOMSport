@@ -3,7 +3,6 @@ package com.MPGI.ECOMSport.EJBsession;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;

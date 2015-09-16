@@ -21,7 +21,6 @@ public class CategorieController {
 
     @PostConstruct
     public void init() {
-    	Categorie categorie = new Categorie();
     }
 
     public List<Categorie> getAllCategories() {

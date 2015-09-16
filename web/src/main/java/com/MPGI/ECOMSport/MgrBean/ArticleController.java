@@ -23,7 +23,6 @@ public class ArticleController {
 
 	@PostConstruct
 	public void init() {
-		Article adresse = new Article();
 
 	}
 

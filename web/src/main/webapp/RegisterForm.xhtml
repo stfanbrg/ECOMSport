@@ -12,7 +12,7 @@
 			<p:outputLabel value="Login" />
 			<p:inputText value="#{compteRegister.login}"></p:inputText>
 			<p:outputLabel value="Mot de passe" />
-			<p:inputText value="#{compteRegister.mdp}"></p:inputText>
+			<p:password value="#{compteRegister.mdp}"></p:password>
 			<p:outputLabel value="Nom" />
 			<p:inputText value="#{compteRegister.nom}"></p:inputText>
 			<p:outputLabel value="Prenom" />
@@ -20,10 +20,10 @@
 			<p:outputLabel value="Mail" />
 			<p:inputText value="#{compteRegister.email}"></p:inputText>
 			<p:outputLabel></p:outputLabel>
-			<p:commandButton value="Save"
-				action="#{compteController.saveUser(compteRegister)}"></p:commandButton>
-			<p:commandButton value="Annuler" 
-				action="index" update="@all" ></p:commandButton>
+			<div>
+			<p:commandButton value="Sauver" action="#{compteController.saveUser(compteRegister)}"></p:commandButton>
+			<p:commandButton value="Annuler" action="index" ></p:commandButton>
+			</div>
 		</h:panelGrid>
 	</ui:define>
 </ui:composition>

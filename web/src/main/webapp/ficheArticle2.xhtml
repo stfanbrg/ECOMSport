@@ -11,7 +11,7 @@
 	
 		<p:panelGrid columns="2">
 			<f:facet name="header">
-				<p:graphicImage value="/resources/glx/#{articleController.readArticle(param.idarticle).image}" />
+				<p:graphicImage value="/resources/glx/#{articleController.readArticle(param.idarticle).image}"  />
 			</f:facet>
 			<h:outputText value="Name:" />
 			<h:outputText value="#{articleController.readArticle(param.idarticle).nom}" />

@@ -8,8 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import com.MPGI.ECOMSport.EJBentity.Adresse;
 import com.MPGI.ECOMSport.EJBentity.Compte;
 import com.MPGI.ECOMSport.EJBsession.CompteDao;
+import com.MPGI.ECOMSport.beans.CompteRegister;
 import com.MPGI.ECOMSport.beans.CompteSession;
 
 @ManagedBean(name = "compteController")
@@ -18,7 +20,7 @@ public class CompteController {
 
     @EJB
     private CompteDao compteDao;
-
+    
 
     /*
     On doit récuperer le bean CompteSession via jsf car c'est lui qui s'est chargé de l'instancier voici comment faire
@@ -91,7 +93,8 @@ public class CompteController {
         );
     }
 	
-    public String saveUser(Compte compte){
+    public String saveUser(CompteRegister compte){
+    	
     	compteDao.saveUser(compte);
 		return "index";
 	}
