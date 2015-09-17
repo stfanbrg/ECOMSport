@@ -7,6 +7,18 @@ body {
   color:#363636;
 }
 
+.articleStyle{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 1em;
+  background: white;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #8c8f91;
+  border-right: 2px solid #8c8f91;
+  border-bottom: 3px solid #8c8f91;
+}
+
 #container {
   background: url(../glx/montagne.jpg);
   margin: 0 auto;
@@ -86,5 +98,6 @@ img {
 	border-style: solid;
     border-width: 1px;
     min-width:150px;
-    background:white;
+    background: #dadada;
+    
 }

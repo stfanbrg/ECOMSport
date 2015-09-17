@@ -8,22 +8,38 @@
 
 
 
-	<ui:define name="corps">
+	  <!-- <ui:define name="corps">
 		<h:form>
 			<f:view>
 				<h:panelGrid id="resourcePanel" columns="3" rules="all" cellspacing="0" cellpadding="0">
 					<c:forEach var="article"
 						items="#{articleController.getArticlesSearch()}">
-						<h:commandLink action="#{articleController.selectArticle(article.idArticle)}" >	
+						<h:commandLink action="ficheArticle2" >	
 						<f:param name="idarticle" value="#{article.idArticle}" />
 						<h:panelGrid columns="1" rules="none" cellpadding="0">
 							<h:graphicImage value="resources/glx/#{article.image}"/>
 								<h:outputText value="#{article.nom}" /> 																		
 						</h:panelGrid>
-						</h:commandLink >
+						</h:commandLink  >
 					</c:forEach>
 				</h:panelGrid>
 			</f:view>
 		</h:form>
-	</ui:define>
+	</ui:define>-->
+	
+	<ui:define name="corps">
+		<h:form>
+	 	<ui:repeat var="article" value="#{articleController.getArticlesSearch()}">
+	 
+	 	<h:commandLink action="ficheArticle2" >    
+	 	<f:param name="idarticle" value="#{article.idArticle}" />
+            <div class="articleStyle">
+                <h:graphicImage value="resources/glx/#{article.image}"/>
+                <h:outputText value="#{article.nom}" /> 
+            </div>
+          </h:commandLink>
+        </ui:repeat>
+        </h:form>
+    </ui:define>
+	
 </ui:composition>

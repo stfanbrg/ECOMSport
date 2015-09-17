@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.MPGI.ECOMSport.EJBentity.Article;
@@ -18,6 +19,7 @@ import com.MPGI.ECOMSport.beans.SelectedArticle;
 @RequestScoped
 public class ArticleController {
 
+	
 	
 	public static PanierSession getCurrentPanierSession() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -33,7 +35,7 @@ public class ArticleController {
 	@EJB
 	private ArticleDao articleDao;
 	public String recherche;
-
+	
 	@PostConstruct
 	public void init() {
 
@@ -76,25 +78,31 @@ public class ArticleController {
 		return getCurrentPanierSession().getArticles();
 	}
 	
-	public String selectArticle(int id)
+	public String selectArticle()
 	{
-		
-		Article article = readArticle(id);
-		if (article !=null)
-		{
+			
 			if (getCurrentSelectedArticle() != null)
 			{
-					getCurrentSelectedArticle().setCategorie(article.getCategorie());
-					getCurrentSelectedArticle().setIdArticle(article.getIdArticle());
-					getCurrentSelectedArticle().setImage(article.getImage());
-					getCurrentSelectedArticle().setMarque(article.getMarque());
-					getCurrentSelectedArticle().setNom(article.getNom());
-					getCurrentSelectedArticle().setPrix(article.getPrix());
-					getCurrentSelectedArticle().setStock(article.getStock());
+				
+					Article article = readArticle(getCurrentSelectedArticle().getIdSelectedArticle());
 					
+					if (article!=null)
+					{
+						getCurrentSelectedArticle().setCategorie(article.getCategorie());
+						getCurrentSelectedArticle().setIdArticle(article.getIdArticle());
+						getCurrentSelectedArticle().setImage(article.getImage());
+						getCurrentSelectedArticle().setMarque(article.getMarque());
+						getCurrentSelectedArticle().setNom(article.getNom());
+						getCurrentSelectedArticle().setPrix(article.getPrix());
+						getCurrentSelectedArticle().setStock(article.getStock());
+						getCurrentPanierSession().addArticle(article);
+						return "Panier";
+					}
+					else 
+						return "index";
 			}
-			
-		}	
-		return "ficheArticle2";
+			else
+				return "PanierVide";
+
 	}
 }

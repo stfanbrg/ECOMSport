@@ -33,9 +33,13 @@
 				name="prix" 
 				class="select-article"  />
 		</p:panelGrid>
-		<p:commandButton value="Ajouter au panier"
-				action="#{panierSession.addArticles(param.idarticle)}" 
+		<h:inputHidden id="artToAdd" value="#{articleController.readArticle(param.idarticle).idArticle}" />
+		
+		<p:commandButton value="#{articleController.readArticle(param.idarticle).idArticle}"
+				action="#{articleController.selectArticle()}" 
 				update="@all">
+				<f:setPropertyActionListener value="#{articleController.readArticle(param.idarticle).idArticle}" target="#{selectedArticle.idSelectedArticle}" />
+		
 		</p:commandButton>
 	</ui:define>
 </ui:composition>
